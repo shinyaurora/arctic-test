@@ -12,6 +12,9 @@ export const meta: MetaFunction = () => {
   return [{title: 'Hydrogen | Home'}];
 };
 
+import GoalsSection from '~/components/GoalsSelections';
+import { SupplementsSection } from '~/components/SupplementsSection';
+
 export async function loader(args: LoaderFunctionArgs) {
   // Start fetching non-critical data without blocking time to first byte
   const deferredData = loadDeferredData(args);
@@ -60,6 +63,60 @@ export default function Homepage() {
   const data = useLoaderData<typeof loader>();
   return (
     <div className="home">
+      <div className="w-full">
+      {/* Hero Section */}
+      <section className="relative h-screen w-full overflow-hidden">
+        {/* Background video */}
+        <video
+          // autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          src="./video/1.mp4" // Replace with your video URL
+        ></video>
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-opacity-50 flex flex-col justify-center items-start px-6 md:px-16 z-10">
+          <h1 className="text-white text-4xl md:text-6xl font-bold max-w-2xl mb-6">
+            Great things never came<br />from comfort zones.
+          </h1>
+          <a
+            href="/collections/all"
+            className="inline-block bg-white text-black px-6 py-3 rounded font-medium hover:bg-gray-100 transition"
+          >
+            Shop Now
+          </a>
+        </div>
+      </section>
+
+      {/* Footer Banner */}
+      <footer className="bg-black text-white text-sm py-2 overflow-hidden whitespace-nowrap">
+        <div className="flex gap-6 px-4 animate-marquee">
+          <span>★ High Quality Ingredients</span>
+          <span>★ Independently Certified</span>
+          <span>★ Expert Driven</span>
+          <span>★ Shipped Internationally</span>
+          <span>★ High Quality Ingredients</span>
+          <span>★ Independently Certified</span>
+          <span>★ Expert Driven</span>
+          <span>★ Shipped Internationally</span>
+        </div>
+      </footer>
+
+      {/* Marquee animation */}
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+          animation: marquee 30s linear infinite;
+        }
+      `}</style>
+    </div>
+<GoalsSection/>
+<SupplementsSection/>
       <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} />
     </div>
