@@ -77,13 +77,13 @@ export default function Homepage() {
         ></video>
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-opacity-50 flex flex-col justify-center items-start px-6 md:px-16 z-10">
-          <h1 className="text-white text-4xl md:text-6xl font-bold max-w-2xl mb-6">
+        <div className="absolute inset-0 bg-opacity-50 flex flex-col top-1/2 left-[30px]">
+          <div className='text-white text-[70px] font-bold'>
             Great things never came<br />from comfort zones.
-          </h1>
+          </div>
           <a
             href="/collections/all"
-            className="inline-block bg-white text-black px-6 py-3 rounded font-medium hover:bg-gray-100 transition"
+            className="w-[160px] h-[50px] bg-white rounded-[10px] flex justify-center items-center font-bold text-[16px]"
           >
             Shop Now
           </a>

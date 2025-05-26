@@ -44,15 +44,15 @@ export function Header({
 
         {/* Desktop Right Actions */}
         <div className="hidden md:flex items-center gap-4">
-          <div className="hover:bg-gray-200 flex w-[100px] justify-around h-full">
-            <div>Men</div> 
-            <div><img src='/images/header/man.png'/></div>
+          <div className="flex items-center hover:bg-gray-200 flex w-[100px] justify-around h-full bg-[#E4E4E4] rounded-[10px] text-black">
+            <div className="flex items-center">Men</div> 
+            <div className='flex items-center bg-white h-[35px] w-[35px] flex justify-center rounded-full'><img src='/images/header/man.png'/></div>
           </div>
-          <NavLink to="/quiz" className="hover:bg-gray-800">
+          <div className="hover:bg-gray-800 bg-black h-full text-white rounded-[10px] px-[20px] flex items-center font-bold">
             Take The Quiz
-          </NavLink>
-          <NavLink to="/account" className="text-xl"><img src='/images/header/user.png'/></NavLink>
-          <NavLink to="/cart" className="text-xl"><img src='/images/header/cart.png'/></NavLink>
+          </div>
+          <div className="text-xl w-[30px] flex justify-center"><img src='/images/header/user.png'/></div>
+          <div className="text-xl w-[30px] flex justify-center"><img src='/images/header/cart.png'/></div>
         </div>
 
         {/* Mobile Toggle */}
