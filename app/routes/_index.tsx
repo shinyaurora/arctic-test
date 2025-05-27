@@ -14,6 +14,10 @@ export const meta: MetaFunction = () => {
 
 import GoalsSection from '~/components/GoalsSelections';
 import { SupplementsSection } from '~/components/SupplementsSection';
+import { SupplementsIntro } from '~/components/CleanSupplementSection';
+import { ScienceSection } from '~/components/ScienceSection';
+import { SpecificSection } from '~/components/SpecifiSection';
+import { IngredientSection } from '~/components/IngredientSection';
 
 export async function loader(args: LoaderFunctionArgs) {
   // Start fetching non-critical data without blocking time to first byte
@@ -115,8 +119,12 @@ export default function Homepage() {
         }
       `}</style>
     </div>
-<GoalsSection/>
-<SupplementsSection/>
+    <GoalsSection/>
+    <SupplementsSection/>
+    <SupplementsIntro/>
+    <ScienceSection/>
+    <SpecificSection/>
+    <IngredientSection/>
       <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} />
     </div>
