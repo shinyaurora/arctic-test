@@ -80,8 +80,9 @@ export function SpecificSection() {
         <a href="#" className="text-sm font-semibold underline">
           View All Bundles
         </a>
-        <div className="w-[50px] h-[50px] border border-gray-300 rounded-[10px] flex justify-center items-center"><img src="/images/arrow.png" className="rotate-45"/></div>
+        
         <div className="w-[50px] h-[50px] border border-gray-300 rounded-[10px] flex justify-center items-center"><img src="/images/arrow.png" className="-rotate-135"/></div>
+        <div className="w-[50px] h-[50px] border border-gray-300 rounded-[10px] flex justify-center items-center"><img src="/images/arrow.png" className="rotate-45"/></div>
       </div>
     </div>
 

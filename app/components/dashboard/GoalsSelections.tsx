@@ -1,4 +1,4 @@
-export default function GoalsSection() {
+export function GoalsSection() {
   const goals = [
     {
       title: 'Sleep',

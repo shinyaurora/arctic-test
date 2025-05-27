@@ -12,12 +12,13 @@ export const meta: MetaFunction = () => {
   return [{title: 'Hydrogen | Home'}];
 };
 
-import GoalsSection from '~/components/GoalsSelections';
-import { SupplementsSection } from '~/components/SupplementsSection';
-import { SupplementsIntro } from '~/components/CleanSupplementSection';
-import { ScienceSection } from '~/components/ScienceSection';
-import { SpecificSection } from '~/components/SpecifiSection';
-import { IngredientSection } from '~/components/IngredientSection';
+import {GoalsSection} from '~/components/dashboard/GoalsSelections';
+import { SupplementsSection } from '~/components/dashboard/SupplementsSection';
+import { SupplementsIntro } from '~/components/dashboard/CleanSupplementSection';
+import { ScienceSection } from '~/components/dashboard/ScienceSection';
+import { SpecificSection } from '~/components/dashboard/SpecificSection';
+import { IngredientSection } from '~/components/dashboard/IngredientSection';
+import { BlogSection } from '~/components/dashboard/BlogSection';
 
 export async function loader(args: LoaderFunctionArgs) {
   // Start fetching non-critical data without blocking time to first byte
@@ -125,8 +126,9 @@ export default function Homepage() {
     <ScienceSection/>
     <SpecificSection/>
     <IngredientSection/>
-      <FeaturedCollection collection={data.featuredCollection} />
-      <RecommendedProducts products={data.recommendedProducts} />
+    <BlogSection/>
+      {/* <FeaturedCollection collection={data.featuredCollection} />
+      <RecommendedProducts products={data.recommendedProducts} /> */}
     </div>
   );
 }

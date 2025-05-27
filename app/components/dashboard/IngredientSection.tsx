@@ -25,8 +25,7 @@ export function IngredientSection() {
                 <div className="text-[40px] font-bold">Customized Protein Powder</div>
             </div>
             <div className="flex items-center">
-                <div className="w-[50px] h-[50px] border border-gray-300 rounded-[10px] flex justify-center items-center"><img src="/images/arrow.png" className="rotate-45"/></div>
-        
+                <div className="w-[50px] h-[50px] border border-gray-300 rounded-[10px] flex justify-center items-center"><img src="/images/arrow.png" className="-rotate-135"/></div>
                 <section className="rounded-xl max-w-7xl mx-auto">
                 <div className="flex flex-col md:flex-row bg-white rounded-lg overflow-hidden shadow">
                     {/* Product Image */}
@@ -70,7 +69,7 @@ export function IngredientSection() {
                     </div>
                 </div>
                 </section>
-                <div className="w-[50px] h-[50px] border border-gray-300 rounded-[10px] flex justify-center items-center"><img src="/images/arrow.png" className="-rotate-135"/></div>
+                <div className="w-[50px] h-[50px] border border-gray-300 rounded-[10px] flex justify-center items-center"><img src="/images/arrow.png" className="rotate-45"/></div>
             </div>
         </div>
     )
