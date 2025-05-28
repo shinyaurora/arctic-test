@@ -1,5 +1,5 @@
 import {type LoaderFunctionArgs} from '@shopify/remix-oxygen';
-import { Await, useLoaderData, Link, type MetaFunction } from 'react-router';
+import {Await, useLoaderData, Link, type MetaFunction} from 'react-router';
 import {Suspense} from 'react';
 import {Image, Money} from '@shopify/hydrogen';
 import type {
@@ -13,12 +13,12 @@ export const meta: MetaFunction = () => {
 };
 
 import {GoalsSection} from '~/components/dashboard/GoalsSelections';
-import { SupplementsSection } from '~/components/dashboard/SupplementsSection';
-import { SupplementsIntro } from '~/components/dashboard/CleanSupplementSection';
-import { ScienceSection } from '~/components/dashboard/ScienceSection';
-import { SpecificSection } from '~/components/dashboard/SpecificSection';
-import { IngredientSection } from '~/components/dashboard/IngredientSection';
-import { BlogSection } from '~/components/dashboard/BlogSection';
+import {SupplementsSection} from '~/components/dashboard/SupplementsSection';
+import {SupplementsIntro} from '~/components/dashboard/CleanSupplementSection';
+import {ScienceSection} from '~/components/dashboard/ScienceSection';
+import {SpecificSection} from '~/components/dashboard/SpecificSection';
+import {IngredientSection} from '~/components/dashboard/IngredientSection';
+import {BlogSection} from '~/components/dashboard/BlogSection';
 
 export async function loader(args: LoaderFunctionArgs) {
   // Start fetching non-critical data without blocking time to first byte
@@ -69,48 +69,50 @@ export default function Homepage() {
   return (
     <div className="home">
       <div className="w-full">
-      {/* Hero Section */}
-      <section className="relative h-screen w-full overflow-hidden">
-        {/* Background video */}
-        <video
-          // autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          src="./video/1.mp4" // Replace with your video URL
-        ></video>
+        {/* Hero Section */}
+        <section className="relative h-screen w-full overflow-hidden">
+          {/* Background video */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            src="./video/1.mp4" // Replace with your video URL
+          ></video>
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-opacity-50 flex flex-col top-1/2 left-[30px]">
-          <div className='text-white text-[70px] font-bold'>
-            Great things never came<br />from comfort zones.
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-opacity-50 flex flex-col top-1/2 left-[30px]">
+            <div className="text-white text-[70px] font-bold">
+              Great things never came
+              <br />
+              from comfort zones.
+            </div>
+            <a
+              href="/collections/all"
+              className="w-[160px] h-[50px] bg-white rounded-[10px] flex justify-center items-center font-bold text-[16px]"
+            >
+              Shop Now
+            </a>
           </div>
-          <a
-            href="/collections/all"
-            className="w-[160px] h-[50px] bg-white rounded-[10px] flex justify-center items-center font-bold text-[16px]"
-          >
-            Shop Now
-          </a>
-        </div>
-      </section>
+        </section>
 
-      {/* Footer Banner */}
-      <footer className="bg-black text-white text-sm py-2 overflow-hidden whitespace-nowrap">
-        <div className="flex gap-6 px-4 animate-marquee">
-          <span>★ High Quality Ingredients</span>
-          <span>★ Independently Certified</span>
-          <span>★ Expert Driven</span>
-          <span>★ Shipped Internationally</span>
-          <span>★ High Quality Ingredients</span>
-          <span>★ Independently Certified</span>
-          <span>★ Expert Driven</span>
-          <span>★ Shipped Internationally</span>
-        </div>
-      </footer>
+        {/* Footer Banner */}
+        <footer className="bg-black text-white text-sm py-2 overflow-hidden whitespace-nowrap">
+          <div className="flex gap-6 px-4 animate-marquee">
+            <span>★ High Quality Ingredients</span>
+            <span>★ Independently Certified</span>
+            <span>★ Expert Driven</span>
+            <span>★ Shipped Internationally</span>
+            <span>★ High Quality Ingredients</span>
+            <span>★ Independently Certified</span>
+            <span>★ Expert Driven</span>
+            <span>★ Shipped Internationally</span>
+          </div>
+        </footer>
 
-      {/* Marquee animation */}
-      <style>{`
+        {/* Marquee animation */}
+        <style>{`
         @keyframes marquee {
           0% { transform: translateX(0%); }
           100% { transform: translateX(-50%); }
@@ -119,14 +121,14 @@ export default function Homepage() {
           animation: marquee 30s linear infinite;
         }
       `}</style>
-    </div>
-    <GoalsSection/>
-    <SupplementsSection/>
-    <SupplementsIntro/>
-    <ScienceSection/>
-    <SpecificSection/>
-    <IngredientSection/>
-    <BlogSection/>
+      </div>
+      <GoalsSection />
+      <SupplementsSection />
+      <SupplementsIntro />
+      <ScienceSection />
+      <SpecificSection />
+      <IngredientSection />
+      <BlogSection />
       {/* <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} /> */}
     </div>
