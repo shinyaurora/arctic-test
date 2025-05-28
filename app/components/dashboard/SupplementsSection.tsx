@@ -1,4 +1,9 @@
+import { useState } from "react";
+import { RightDrawer } from "../drawer/ProductDetail";
+import { CartDetail } from "../drawer/CartDetail";
+
 export function SupplementsSection() {
+  const [plan, setPlan] = useState('subscribe');
   const products = [
     {
       id: 1,
@@ -41,9 +46,14 @@ export function SupplementsSection() {
     },
   ];
 
+  const [open, setOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+
   return (
     <section className="bg-gray-50 py-16 px-6 md:px-12">
       {/* Section Heading */}
+      <RightDrawer open={open} setOpen = {setOpen} cartopen = {cartOpen} setCartopen = {setCartOpen}/>
+      <CartDetail open = {cartOpen} setOpen={setCartOpen}/>
       <div className="text-center mb-10 flex justify-center items-center">
         <div className="w-[50px] h-[50px] border border-gray-300 rounded-[10px] flex justify-center items-center"><img src="/images/arrow.png" className="-rotate-135"/></div>
         <div className="w-[400px]">
@@ -68,7 +78,7 @@ export function SupplementsSection() {
             )}
 
             {/* Image */}
-            <img src={product.image} alt={product.name} className="w-full h-64 object-contain mb-4 group-hover:scale-110  transition-all duration-500 " />
+            <img src={product.image} alt={product.name} className="w-full h-64 object-contain mb-4 group-hover:scale-110  transition-all duration-500 " onClick={() => setOpen(true)}/>
             {/* Tags */}
             <div className="z-10 p-4 flex flex-col justify-end transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-[-10%]">
               {product.tags && (
@@ -103,11 +113,41 @@ export function SupplementsSection() {
             </div>
 
             <div className="-mt-[180px] z-20 p-4 opacity-1 translate-y-full transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
-              <div className="flex gap-2 w-full">
-                <button className="flex-1 border border-gray-300 rounded-lg py-2 text-sm">○ One-Time Purchase<br /><strong>$49.95</strong></button>
-                <button className="flex-1 border-2 border-black rounded-lg py-2 text-sm">
-                  ● Subscribe & Save<br /><strong>$39.96</strong> <span className="text-red-500 text-xs">Save 10%</span>
-                </button>
+              <div className="grid grid-cols-2 gap-2 mt-4">
+                {['one-time', 'subscribe'].map(option => (
+                  <label
+                    key={option}
+                    className={`p-3 border rounded ${plan === option ? 'border-black' : 'border-gray-200'}`}
+                  >
+                    <input
+                      type="radio"
+                      name="plan"
+                      value={option}
+                      checked={plan === option}
+                      onChange={() => setPlan(option)}
+                      className="hidden"
+                    />
+                    <div className="flex items-center">
+                      {plan === option ? (
+                        <div className="w-5 h-5 border-2 border-black rounded-full flex items-center justify-center">
+                          <div className="w-2.5 h-2.5 bg-black rounded-full"></div>
+                        </div>
+                      ):
+                      (
+                        <div className="w-5 h-5 border-2 border-black rounded-full flex items-center justify-center">
+                        </div>
+                      )}
+                      <div className='ml-[5px]'>
+                        <div className="text-[12px] font-semibold">
+                          {option === 'one-time' ? 'One-Time Purchase' : 'Subscribe & Save'}
+                        </div>
+                        <p className="text-xs">
+                          {option === 'subscribe' ? <span>$39.96 <span className='text-[#802608]'>Save 10%</span></span> : '$49.95'}
+                        </p>
+                      </div>
+                    </div>
+                  </label>
+                ))}
               </div>
               <button className="w-full mt-4 py-2 bg-black text-white rounded-lg font-semibold text-sm">Add to Cart - $49.95</button>
               
