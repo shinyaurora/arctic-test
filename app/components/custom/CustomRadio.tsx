@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import {useState} from 'react';
 
-export function CustomRadio(props : any) {
+export function CustomRadio(props: any) {
   const [selected, setSelected] = useState('option1');
 
   const options = [
-    { id: 'option1', label: 'One-Time Purchase' },
-    { id: 'option2', label: 'Subscribe & Save' },
+    {id: 'option1', label: 'One-Time Purchase'},
+    {id: 'option2', label: 'Subscribe & Save'},
   ];
 
   return (
